@@ -1,4 +1,8 @@
+import { useSelector } from "react-redux";
+
 function ContentFooter() {
+    const items = useSelector(state => state.todos.items);
+
     return (
         <footer className="footer">
             <span className="todo-count">
