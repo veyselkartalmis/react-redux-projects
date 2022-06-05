@@ -18,7 +18,7 @@ function Form() {
             <input
                 className="new-todo"
                 placeholder="What needs to be done?"
-                autofocus
+                autoFocus
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
             />
