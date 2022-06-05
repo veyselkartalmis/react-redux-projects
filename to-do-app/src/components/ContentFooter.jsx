@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { changeActiveFilter } from "../redux/todo/todoSlice"
+import { changeActiveFilter, clearCompleted } from "../redux/todo/todoSlice"
 
 function ContentFooter() {
     const dispatch = useDispatch();
@@ -8,7 +8,7 @@ function ContentFooter() {
     const itemsLeft = items.filter((item) => !item.completed).length;
 
     const activeFilter = useSelector((state) => state.todos.activeFilter);
-    
+
     return (
         <footer className="footer">
             <span className="todo-count">
@@ -40,7 +40,10 @@ function ContentFooter() {
                 </li>
             </ul>
 
-            <button className="clear-completed">
+            <button
+                className="clear-completed"
+                onClick={() => dispatch(clearCompleted())}
+            >
                 Clear completed
             </button>
         </footer>
