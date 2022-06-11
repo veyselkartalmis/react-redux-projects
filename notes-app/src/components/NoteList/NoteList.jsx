@@ -1,8 +1,12 @@
+import Note from "../Note/Note";
+import Notes from "../Note/Note";
 import "./noteList.scss";
 
 function NoteList() {
   return (
-    <div>NoteList</div>
+    <div className="noteList">
+      <Note />
+    </div>
   )
 }
 
