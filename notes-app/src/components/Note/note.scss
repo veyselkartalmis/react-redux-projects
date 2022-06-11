@@ -1,0 +1,40 @@
+.notes {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 40px;
+
+    .card-body {
+        width: 33.333%;
+        padding: 15px;
+        border-radius: 15px;
+
+        .noteTitle {
+            text-align: center;
+            font-size: 20px;
+            text-transform: uppercase;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #fafafa;
+        }
+    }
+
+    .black {
+        background: black;
+        color: white;
+    }
+
+    .cyan {
+        background: cyan;
+        color: white;
+    }
+
+    .purple {
+        background: purple;
+        color: white;
+    }
+
+    .golden {
+        background: goldenrod;
+        color: white;
+    }
+}

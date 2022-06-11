@@ -1,11 +1,22 @@
 import "./note.scss";
+import { useSelector } from "react-redux";
 
 function Note() {
+  const notes = useSelector((state) => state.notes.items);
+
   return (
     <div className="notes">
-      <p className="noteTitle">deneme</p>
-      <p className="note-desc">deneme</p>
-    </div>
+      {
+        notes.map((item, index) => {
+          return (
+            <div key={index} className={`${item.color} card-body`}>
+              <p className="noteTitle">{item.title}</p>
+              <p className="note-desc">{item.note}</p>
+            </div>
+          )
+        })
+      }
+    </div >
   )
 }
 

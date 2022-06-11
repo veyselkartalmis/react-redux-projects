@@ -1,5 +1,4 @@
 import Note from "../Note/Note";
-import Notes from "../Note/Note";
 import "./noteList.scss";
 
 function NoteList() {
