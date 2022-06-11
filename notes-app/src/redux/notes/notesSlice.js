@@ -4,6 +4,7 @@ export const noteSlice = createSlice({
 	name: "notes",
 	initialState: {
 		items: [],
+		activeFilter: "",
 	},
 	reducers: {
 		addNote: (state, action) => {
@@ -14,8 +15,11 @@ export const noteSlice = createSlice({
 			const filtered = state.items.filter((note) => note.id !== id);
 			state.items = filtered;
 		},
+		search: (state, action) => {
+			state.activeFilter = action.payload;
+		}
 	},
 });
 
-export const { addNote, destroy } = noteSlice.actions;
+export const { addNote, destroy, search } = noteSlice.actions;
 export default noteSlice.reducer;

@@ -1,15 +1,23 @@
 import "./note.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { destroy } from "../../redux/notes/notesSlice";
+let filtered;
 
 function Note() {
   const notes = useSelector((state) => state.notes.items);
   const dispatch = useDispatch();
+  const filter = useSelector((state) => state.notes.activeFilter);
+
+  filtered = notes.filter((item) => {
+    return Object.keys(item).some((key) =>
+      item[key].toString().toLowerCase().includes(filter.toLowerCase())
+    );
+  });
 
   return (
     <div className="notes">
       {
-        notes.map((item, index) => {
+        filtered.map((item, index) => {
           return (
             <div key={index} className={`${item.color} card-body`}>
               <a
