@@ -8,6 +8,15 @@
         width: 33.333%;
         padding: 15px;
         border-radius: 15px;
+        position: relative;
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
 
         .noteTitle {
             text-align: center;

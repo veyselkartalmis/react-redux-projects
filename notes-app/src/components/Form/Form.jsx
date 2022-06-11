@@ -27,10 +27,9 @@ function Form() {
 			setNoteValid(false);
 			return;
 		}
-
 		dispatch(addNote({ id: nanoid(), title, note, color }));
-		setTitle = "";
-		setNote = "";
+		setTitle("");
+		setNote ("");
 		setNoteValid(true);
 		setTitleValid(true);
 	}
@@ -44,7 +43,6 @@ function Form() {
 						type="text"
 						value={title}
 						onChange={(e) => setTitle(e.target.value)}
-						placeholder={titleValid == false ? "Bu alan boş geçilemez" : ""}
 					/>
 				</div>
 				<div className="form-group">
@@ -53,7 +51,6 @@ function Form() {
 						type="text"
 						value={note}
 						onChange={(e) => setNote(e.target.value)}
-						placeholder={noteValid == false ? "Bu alan boş geçilemez" : ""}
 					/>
 				</div>
 				<div className="form-group">

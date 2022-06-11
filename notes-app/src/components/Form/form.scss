@@ -4,6 +4,8 @@ form {
     gap: 50px;
     border-right: 1px solid #000;
     padding-right: 65px;
+    position: fixed;
+    height: 100%;
 
     .form-group {
         display: flex;

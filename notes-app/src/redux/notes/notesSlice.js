@@ -11,8 +11,8 @@ export const noteSlice = createSlice({
 		},
 		destroy: (state, action) => {
 			const id = action.payload;
-			const filtered = state.notes.filter((note) => note.id !== id);
-			state.note = filtered;
+			const filtered = state.items.filter((note) => note.id !== id);
+			state.items = filtered;
 		},
 	},
 });
