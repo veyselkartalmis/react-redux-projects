@@ -19,7 +19,6 @@ export const charactersSlice = createSlice({
     reducers: {},
     extraReducers: {
         [fetchCharacters.pending]: (state, action) => {
-            state.isLoading = true;
             state.status = "loading";
         },
         [fetchCharacters.fulfilled]: (state, action) => {

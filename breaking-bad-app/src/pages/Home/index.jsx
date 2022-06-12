@@ -38,7 +38,7 @@ function Home() {
                 {
                     characters.map((character) => (
                         <div key={character.char_id}>
-                            <Link to="/char/2">
+                            <Link to={`/char/${character.char_id}`}>
                                 <img src={character.img} alt={character.name} className="character" />
                                 <div className="char-name">{character.name}</div>
                             </Link>
@@ -51,7 +51,7 @@ function Home() {
                 {
                     hasNextPage && status !== "loading" && (
                         <button onClick={() => dispatch(fetchCharacters(nextPage))}>
-                            Load More {nextPage}
+                            Load More ({nextPage})
                         </button>
                     )
                 }
