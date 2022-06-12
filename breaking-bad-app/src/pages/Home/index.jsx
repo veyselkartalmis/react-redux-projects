@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCharacters } from '../../redux/charactersSlice';
 import Masonry from 'react-masonry-css'
+import Loading from "../../components/Loading";
+import Error from "../../components/Error";
 
 function Home() {
     const characters = useSelector((state) => state.characters.items);
@@ -15,6 +17,14 @@ function Home() {
         dispatch(fetchCharacters());
     }, [dispatch])
 
+    if (isLoading) {
+        return <Loading />
+    }
+
+    if (error) {
+        return <Error message={error} />
+    }
+
     return (
         <div>
             <Masonry
@@ -26,7 +36,7 @@ function Home() {
                     characters.map((character) => (
                         <div key={character.char_id}>
                             <img src={character.img} alt={character.name} className="character" />
-                            <div className="char_name">{character.name}</div>
+                            <div className="char-name">{character.name}</div>
                         </div>
                     ))
                 }
