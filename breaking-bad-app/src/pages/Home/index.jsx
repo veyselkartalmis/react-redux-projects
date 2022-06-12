@@ -6,6 +6,9 @@ import Masonry from 'react-masonry-css'
 
 function Home() {
     const characters = useSelector((state) => state.characters.items);
+    const isLoading = useSelector((state) => state.characters.isLoading);
+    const error = useSelector((state) => state.characters.error);
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -14,7 +17,6 @@ function Home() {
 
     return (
         <div>
-            <h1>Characters</h1>
             <Masonry
                 breakpointCols={4}
                 className="my-masonry-grid"
@@ -23,7 +25,8 @@ function Home() {
                 {
                     characters.map((character) => (
                         <div key={character.char_id}>
-                            <img src={character.img} alt={character.name} className="character"/>
+                            <img src={character.img} alt={character.name} className="character" />
+                            <div className="char_name">{character.name}</div>
                         </div>
                     ))
                 }
