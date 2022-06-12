@@ -1,8 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchCharacters = createAsyncThunk('characters/getCharacters', async () => {
-    const res = await axios(`${process.env.REACT_APP_API_BASE_ENDPOINT}/characters?limit=12`);
+const charLimit = 12;
+
+export const fetchCharacters = createAsyncThunk('characters/getCharacters', async (page) => {
+    const res = await axios(`${process.env.REACT_APP_API_BASE_ENDPOINT}/characters?limit=${charLimit}&offset=${page * charLimit}`);
     return res.data;
 });
 
@@ -11,6 +13,7 @@ export const charactersSlice = createSlice({
     initialState: {
         items: [],
         isLoading: false,
+        page: 0,
     },
     reducers: {},
     extraReducers: {
@@ -18,8 +21,9 @@ export const charactersSlice = createSlice({
             state.isLoading = true;
         },
         [fetchCharacters.fulfilled]: (state, action) => {
-            state.items = action.payload;
+            state.items = [...state.items, ...action.payload];
             state.isLoading = false;
+            state.page += 1;
         },
         [fetchCharacters.rejected]: (state, action) => {
             state.isLoading = false;
