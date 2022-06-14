@@ -1,9 +1,17 @@
-import React from 'react'
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import {fetchAllQuotes} from "../../redux/quotesSlice";
 
 function Qutoes() {
-  return (
-    <div>Qutoes</div>
-  )
+    const data = useSelector((state) => state.quotes.items);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchAllQuotes());
+    }, [dispatch]);
+
+	return <div>Qutoes</div>;
 }
 
-export default Qutoes
+export default Qutoes;
