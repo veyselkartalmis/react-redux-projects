@@ -19,8 +19,10 @@ function Qutoes() {
 	const error = useSelector(errorSelector);
 
 	useEffect(() => {
-		dispatch(fetchAllQuotes());
-	}, [dispatch]);
+		if (status === "idle") {
+			dispatch(fetchAllQuotes());
+		}
+	}, [dispatch, status]);
 
 	if (error) {
 		return <Error message={error} />;
@@ -32,6 +34,12 @@ function Qutoes() {
 			{status === "loading" && <Loading />}
 			{status === "succeeded" &&
 				data.map((item) => <Item key={item.quote_id} item={item} />)}
+			<br />
+			{status === "succeeded" && (
+				<div style={{ textAlign: "center", fontSize: "24px" }}>
+					{data.length} quotes.
+				</div>
+			)}
 		</div>
 	);
 }
