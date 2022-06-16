@@ -22,7 +22,7 @@ export const charactersSlice = createSlice({
             state.status = "loading";
         },
         [fetchCharacters.fulfilled]: (state, action) => {
-            state.items = [...action.payload];
+            state.items = [...state.items, ...action.payload];
             state.status = "succeeded";
             state.page += 1;
             if (action.payload.lenght < 12) {
