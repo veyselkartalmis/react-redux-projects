@@ -1,3 +1,12 @@
 .quote-item {
     padding: 10px 0;
 }
+
+.quote-item a {
+    color: #333;
+    text-decoration: none;
+}
+
+.quote-item a:hover {
+    text-decoration: underline;
+}
