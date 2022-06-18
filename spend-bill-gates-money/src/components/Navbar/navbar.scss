@@ -1,0 +1,14 @@
+.navbar {
+    position: fixed;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    width: 100%;
+
+    h1 {
+        font-size: 24px;
+        color: #fff;
+    }
+}
