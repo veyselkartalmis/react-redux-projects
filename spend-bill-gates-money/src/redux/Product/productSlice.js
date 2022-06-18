@@ -6,7 +6,7 @@ const data = productJson;
 export const productSlice = createSlice({
     name: "product",
     initialState: {
-        items: data,
+        items: [data],
         money: 100000000000,
         initialMoney: 100000000000,
     },
@@ -17,9 +17,9 @@ export const productSlice = createSlice({
             item.count = count;
             let price = 0;
 
-            state.items.map((tmp) => {
-                price += Number(tmp.count) * Number(tmp.productPrice);
-            });
+            state.items.map((tmp) => (
+                price += Number(tmp.count) * Number(tmp.productPrice)
+            ));
 
             state.money = Number(state.initialMoney) - Number(price);
         }

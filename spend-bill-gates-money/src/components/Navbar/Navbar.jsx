@@ -6,7 +6,7 @@ function Navbar() {
   let money = useSelector((state) => state.product.money);
   return (
     <div className='navbar'>
-      <h1>{money} $</h1>
+      <h1>{money}$</h1>
     </div>
   )
 }
