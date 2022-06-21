@@ -5,7 +5,7 @@ const initialState = contactAdaptor.getInitialState();
 
 const contactSlice = createSlice({
     name: "contacts",
-    initialState: {},
+    initialState,
     reducers: {
         addContact: contactAdaptor.addOne,
     }

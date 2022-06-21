@@ -1,8 +1,11 @@
+import Contacts from "./components/Contacts/Index";
+
 function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+	return (
+		<div className="App">
+			<Contacts />
+		</div>
+	);
 }
 
 export default App;
