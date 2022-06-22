@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { contactSelectors } from "../../redux/contactSlice";
+import Item from "./Item";
 
 function List() {
 	const contacts = useSelector(contactSelectors.selectAll);
@@ -8,7 +9,7 @@ function List() {
 	return (
 		<div>
 			{contacts.map((contact) => (
-				<Item item={contact} />
+				<Item key={contact.id} item={contact} />
 			))}
 		</div>
 	);
