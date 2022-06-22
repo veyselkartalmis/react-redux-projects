@@ -1,18 +1,26 @@
-import { useSelector } from "react-redux";
-import { contactSelectors } from "../../redux/contactSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { contactSelectors, removeAll } from "../../redux/contactSlice";
 import Item from "./Item";
 import "./style.scss";
 
 function List() {
 	const contacts = useSelector(contactSelectors.selectAll);
-	// const total = useSelector(contactSelectors.selectTotal);
+	const dispatch = useDispatch();
 
+	const handleRemoveAll = () => {
+		if (window.confirm("Are you sure?")) {
+			dispatch(removeAll());
+		}
+	}
 	return (
-		<ul className="list">
-			{contacts.map((contact) => (
-				<Item key={contact.id} item={contact} />
-			))}
-		</ul>
+		<div>
+			<p className="deleteAll" onClick={handleRemoveAll}>Delete All</p>
+			<ul className="list">
+				{contacts.map((contact) => (
+					<Item key={contact.id} item={contact} />
+				))}
+			</ul>
+		</div>
 	);
 }
 

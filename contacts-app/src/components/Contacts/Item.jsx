@@ -4,7 +4,7 @@ import "./style.scss";
 
 function Item({ item }) {
   const dispatch = useDispatch();
-
+  
   const handleDelete = (id) => {
     if (window.confirm("Are you sure?")) {
       dispatch(deleteContact(id));

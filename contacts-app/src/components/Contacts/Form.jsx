@@ -15,13 +15,14 @@ function Form() {
 		dispatch(addContact({ id: nanoid(), name: name, phone_number: phone }));
 		setName("");
 		setPhone("");
+		document.getElementById("focus").focus();
 	};
 
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
 				<input
-					value={name} onChange={(e) => setName(e.target.value)} placeholder="Name"
+					value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" id="focus"
 				/>
 				<input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" />
 				<div className="btn">
