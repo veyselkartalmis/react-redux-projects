@@ -1,12 +1,13 @@
 import Form from './Form';
 import List from './List';
+import "./style.scss";
 
 function Contacts() {
     return (
-        <div>
+        <div id='container'>
             <h1>Contacts</h1>
-            <Form />
             <List />
+            <Form />
         </div>
     )
 }

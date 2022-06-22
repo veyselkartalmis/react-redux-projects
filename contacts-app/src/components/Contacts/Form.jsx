@@ -1,30 +1,32 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
-import { addContact, addContacts } from "../../redux/contactSlice";
+import { addContact } from "../../redux/contactSlice";
+import "./style.scss";
 
 function Form() {
 	const [name, setName] = useState("");
+	const [phone, setPhone] = useState("");
 	const dispatch = useDispatch();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (!name) return false;
-		dispatch(addContact({ id: nanoid(), name }));
-        /* Çoklu kayıt eklemek için */
-		/* const names = name.split(",");
-		dispatch(addContacts(names.map((name) => ({ id: nanoid(), name })))); */
+		if (!name || !phone) return false;
+		dispatch(addContact({ id: nanoid(), name: name, phone_number: phone }));
 		setName("");
+		setPhone("");
 	};
 
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
 				<input
-					value={name}
-					onChange={(e) => setName(e.target.value)}
-					placeholder="Name"
+					value={name} onChange={(e) => setName(e.target.value)} placeholder="Name"
 				/>
+				<input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" />
+				<div className="btn">
+					<button type="submit">Add</button> 
+				</div>
 			</form>
 		</div>
 	);

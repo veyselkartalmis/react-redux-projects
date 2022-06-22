@@ -1,10 +1,12 @@
 import React from 'react'
+import "./style.scss";
 
 function Item({item}) {
   return (
-    <div>
-      {item.name}
-    </div>
+    <li>
+      <span>{item.name}</span>
+      <span>{item.phone_number}</span>
+    </li>
   )
 }
 
