@@ -40,6 +40,7 @@ li {
     margin-bottom: 4px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 50px;
 }
 
@@ -71,4 +72,19 @@ button {
     margin-top: 20px;
     cursor: pointer;
     text-align: center;
+}
+
+.edit {
+    background: darkblue;
+    color: #fff;
+    padding: 3px;
+    border-radius: 3px;
+    width: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
 }

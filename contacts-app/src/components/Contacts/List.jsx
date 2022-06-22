@@ -5,6 +5,8 @@ import "./style.scss";
 
 function List() {
 	const contacts = useSelector(contactSelectors.selectAll);
+	const total = useSelector(contactSelectors.selectTotal);
+
 	const dispatch = useDispatch();
 
 	const handleRemoveAll = () => {
@@ -14,7 +16,7 @@ function List() {
 	}
 	return (
 		<div>
-			<p className="deleteAll" onClick={handleRemoveAll}>Delete All</p>
+			{total > 0 && <p className="deleteAll" onClick={handleRemoveAll}>Delete All</p>}
 			<ul className="list">
 				{contacts.map((contact) => (
 					<Item key={contact.id} item={contact} />
